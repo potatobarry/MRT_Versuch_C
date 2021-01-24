@@ -44,6 +44,9 @@ int main (int argc, char* args[])
         p.xpoints =    400;
         p.ypoints =    300;
 
+        c.real = 0.4;
+        c.imag = 0.4;
+
         /*--- Hauptprogramm ------------------------------------------------*/
 
         while (keep_going != 0)

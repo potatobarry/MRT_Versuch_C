@@ -34,7 +34,7 @@ int main (int argc, char* args[])
         init_exit();
         
         /*--- Parameter über Dialog abfragen -------------------------------*/
-        if (param_dialog(p, c) == 1) //gibt 1 zurück wenn programm beenden, sonst 0
+        if (param_dialog(p, c) == 0) //gibt 0 zurück wenn programm beenden, sonst 1
         {
             return 0;
         }

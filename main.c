@@ -32,27 +32,42 @@ int main (int argc, char* args[])
         /*--- Initialwerte -------------------------------------------------*/
 
         init_exit();
+        int keep_going = 1;
+       
+        p.menge   = mandel;
+        p.radius  =      2;
+        p.xmin    =     -2;
+        p.xmax    =      2;
+        p.ymin    =     -2;
+        p.ymax    =      2;
+        p.imax    =     75;
+        p.xpoints =    400;
+        p.ypoints =    300;
+
+        /*--- Hauptprogramm ------------------------------------------------*/
+
+        while (keep_going != 0)
+        6{
+
         
         /*--- Parameter über Dialog abfragen -------------------------------*/
-        if (param_dialog(p, c) == 0) //gibt 0 zurück wenn programm beenden, sonst 1
-        {
-            return 0;
-        }
-        ; 
+            keep_going = param_dialog(p, c); //gibt 0 zurück wenn programm beenden, sonst 1
+         
 
         /* Initialisierung des Grafikausgabefensters */
-        //grafik_init_window();
+            grafik_init_window();
 
         /* Erzeugen einer virtuellen Leinwand um darauf zu zeichnen: */
-        //grafik_create_paint_area(x_min, x_max, y_min, y_max, x_points, y_points);
+            grafik_create_paint_area(p.xmin, p.xmax, p.ymin, p.ymax, p.xpoints, p.ypoints);
         
         /* virtuelle Leinwand vor dem Zeichnen aktivieren */
-        //grafik_lock_for_painting();
+            grafik_lock_for_painting();
 
         /* Bitte ersetzen Sie folgenden Funktionsaufruf durch ihre eigene
          * Implementation der Fraktalberechnung und -anzeige. */
-        //farb_demonstration();
         
+            fraktal(c, c);
+
         
          /* virtuelle Leinwand deaktivieren und im Grafikfenster ausgeben. */
         //grafik_unlock_and_show();
@@ -69,7 +84,7 @@ int main (int argc, char* args[])
         /*VOR ABSCHLUSS ENTFERNEN!!*/
         
         system("pause");
-        
+        }
         /*---------------------------*/
         return 0;
 }

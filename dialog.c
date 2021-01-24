@@ -119,8 +119,8 @@ int param_dialog(param_t p, complex_t c)
         case 9: printf("Eingaben bestätigen? (y/n)");   //bestätigen und speichern der Eingaben
             if (input_char() == 'y' || 'Y')
             { //Prüft, ob Eingaben Sinnhaft sind. 
-                if ((p_in.radius > 0) && (p_in.imax > 0) && (p_in.menge == 'm' || p_in.menge == 'j') && (p_in.xmax > 0) && (p_in.xmin > 0)
-                    && (p_in.ymax > 0) && (p_in.ymin > 0) && (p_in.xpoints > 0) && (p_in.ypoints > 0))
+                if ((p_in.radius > 0) && (p_in.imax > 0) && (p_in.menge == 'm' || p_in.menge == 'j') && (p_in.xmin < p_in.xmax)
+                    && (p_in.ymin < p_in.ymax) && (p_in.xpoints > 0) && (p_in.ypoints > 0))
                 {
                 printf("Eingaben bestätigt...\n"); //Setzten der eingegebenen p und c Variablen auf Eingaben.
                 p = p_in;

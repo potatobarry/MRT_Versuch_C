@@ -110,14 +110,14 @@ int param_dialog(param_t p, complex_t c)
             input_double(&c_in.imag);
             break;
         case 8: printf("Programm beenden? (y/n)\n");    //Überprüft, ob Programm wirklich beendet werden soll.
-            if (input_char() == 'y' || 'Y')
+            if (input_char() == 'y' || input_char() == 'Y')
             {
                 printf("exiting...\n");
                 return 0;                               //Übergibt 0 an Main --> auch dort Programm gezielt beenden.
             }
             break;
         case 9: printf("Eingaben bestätigen? (y/n)");   //bestätigen und speichern der Eingaben
-            if (input_char() == 'y' || 'Y')
+            if (input_char() == 'y' || input_char() == 'Y')
             { //Prüft, ob Eingaben Sinnhaft sind. 
                 if ((p_in.radius > 0) && (p_in.imax > 0) && (p_in.menge == 'm' || p_in.menge == 'j') && (p_in.xmin < p_in.xmax)
                     && (p_in.ymin < p_in.ymax) && (p_in.xpoints > 0) && (p_in.ypoints > 0))

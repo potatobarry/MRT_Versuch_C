@@ -64,21 +64,21 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Fuck-everything\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Fuck-everything\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Fuck-everything\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\include;$(IncludePath)</IncludePath>
-    <LibraryPath>F:\Users\Quinn\Documents\Studium\Mikrorechentechnik\V3\aaaaaaaaaaaaaaaaaaaaaaaaaah\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Fuck-everything\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Fuck-everything\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

@@ -47,12 +47,17 @@ int main (int argc, char* args[])
         /*--- Hauptprogramm ------------------------------------------------*/
 
         while (keep_going != 0)
-        6{
+        {
 
         
         /*--- Parameter über Dialog abfragen -------------------------------*/
             keep_going = param_dialog(p, c); //gibt 0 zurück wenn programm beenden, sonst 1
          
+        /*--- Überprüfen der Exitbedingung ---------------------------------*/
+            if (keep_going == 0)
+            {
+                break;
+            }
 
         /* Initialisierung des Grafikausgabefensters */
             grafik_init_window();
@@ -61,31 +66,33 @@ int main (int argc, char* args[])
             grafik_create_paint_area(p.xmin, p.xmax, p.ymin, p.ymax, p.xpoints, p.ypoints);
         
         /* virtuelle Leinwand vor dem Zeichnen aktivieren */
-            grafik_lock_for_painting();
+            //grafik_lock_for_painting();
 
         /* Bitte ersetzen Sie folgenden Funktionsaufruf durch ihre eigene
          * Implementation der Fraktalberechnung und -anzeige. */
         
-            fraktal(c, c);
+            fraktal(c, z, p);
 
         
          /* virtuelle Leinwand deaktivieren und im Grafikfenster ausgeben. */
         //grafik_unlock_and_show();
 
-        /* Aufrufen von InputChar() um das Programm nach dem öffnen der
-         Graphik anzuhalten. Erst wenn in der Konsole eine Taste gedrückt
-         wird, schließt sich das Fenster wieder. */
+       
         
 
-         /* Aufräumen und freigeben der benutzten Grafikressourcen */
-        //grafik_close_window();
         
         /* ------------------------*/
         /*VOR ABSCHLUSS ENTFERNEN!!*/
-        
-        system("pause");
+            system("pause");
+        /*-------------------------*/
+
         }
-        /*---------------------------*/
+        
+                
+        /* Aufräumen und freigeben der benutzten Grafikressourcen */
+        grafik_close_window();
+
+        
         return 0;
 }
 

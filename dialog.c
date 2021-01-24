@@ -60,7 +60,7 @@ int param_dialog(param_t p, complex_t c)
     printf("\n3: Komplexwertiges Analysegebiet wählen \n Aktuell: xmin = %f, xmax = %f, ymin = %f, ymax = %f", p_in.xmin, p_in.xmax, p_in.ymin, p_in.ymax);
     printf("\n4: Anzahl der Linien im Analysegebiet \n Aktuell: Linien in x-Richtung: xpoints = %d \n          Linien in y-Richtung: ypoints = %d", p_in.xpoints, p_in.ypoints);
     printf("\n5: Komplexe Zahl c\n Aktuell: Realteil = %f, Imaginärteil = %f", c_in.real, c_in.imag);
-    printf("\n--------------------------------------------------------------------------")
+    printf("\n--------------------------------------------------------------------------\n");
 
 
 

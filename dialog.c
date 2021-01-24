@@ -55,13 +55,13 @@ int param_dialog(param_t p, complex_t c)
 
     printf("-------------------------------------------------------------------------- \n");
     printf("Zur Parametereingabe bitte eine der Folgenden Optionen auswählen: \n\n");
-    printf("0: Radius zur Beschreibung es kreisförmigen Gebietes G für komplexe Zahlen \n");
-    printf("1: Maximale Iterationszahl \n");
-    printf("2: Fraktalvariante wählen \n");
-    printf("3: Komplexwertiges Analysegebiet wählen \n");
-    printf("4: Anzahl der Linien im Analysegebiet \n");
-    printf("5: Komplexe \n");
-    printf("p_radius = %f", p.radius); 
+    printf("0: Radius zur Beschreibung es kreisförmigen Gebietes G für komplexe Zahlen \n Aktuell: p_radius = %f", p.radius);
+    printf("\n1: Maximale Iterationszahl \n Aktuell: imax = %d", p.imax);
+    printf("\n2: Fraktalvariante wählen: 0 für Manedelbrot, 1 für Juliamenge \n Aktuell: menge = % f", p.radius);
+    printf("\n3: Komplexwertiges Analysegebiet wählen \n Aktuell: p_radius = % f", p.radius);
+    printf("\n4: Anzahl der Linien im Analysegebiet \n Aktuell: p_radius = % f", p.radius);
+    printf("\n5: Komplexe \n");
+    
     printf( "\n");
     printf(" \n");
     printf(" \n");

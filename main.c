@@ -24,19 +24,17 @@ int main (int argc, char* args[])
 {
         /*--- Variablendeklaration -----------------------------------------*/
        
-
-
+        param_t   p = { 0 };
+        complex_t c = { 0 };
+        complex_t z = { 0 };
     
 
         /*--- Initialwerte -------------------------------------------------*/
 
-
         init_exit();
         
         /*--- Parameter über Dialog abfragen -------------------------------*/
-        param_t p = { 0 };
-        p.radius = 2.4;
-        complex_t c = { 0 };
+       
         param_dialog(p, c);
 
         /* Initialisierung des Grafikausgabefensters */

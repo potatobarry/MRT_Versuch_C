@@ -9,7 +9,7 @@
 
 /*--- Datentypvereinbarungen -----------------------------------------------*/
 typedef enum{
-    mandel = 0, julia = 1
+    mandel = 'm', julia = 'j'
 }fraktal_t; /*fraktal_t außerhalb param_t definiert, damit wir in fraktal() auf dessen elemente zugreifen können*/
 
 typedef struct

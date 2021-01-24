@@ -34,8 +34,11 @@ int main (int argc, char* args[])
         init_exit();
         
         /*--- Parameter über Dialog abfragen -------------------------------*/
-       
-        param_dialog(p, c);
+        if (param_dialog(p, c) == 1) //gibt 1 zurück wenn programm beenden, sonst 0
+        {
+            return 0;
+        }
+        ; 
 
         /* Initialisierung des Grafikausgabefensters */
         //grafik_init_window();

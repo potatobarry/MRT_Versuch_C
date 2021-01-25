@@ -1,0 +1,21 @@
+#include<iostream> 
+
+using namespace std;
+
+// global variable 
+int global = 5;
+
+void display()
+{
+	cout << global << endl;
+}
+
+// main function 
+int main()
+{
+	display();
+
+	// changing value of global 
+	global = 10;
+	display();
+}

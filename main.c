@@ -49,8 +49,7 @@ int main (int argc, char* args[])
         /*--- Hauptprogramm ------------------------------------------------*/
         /*--- Parameter über Dialog abfragen -------------------------------*/
         while (param_dialog(&p, &c))
-        {
-        
+        {        
         /* Initialisierung des Grafikausgabefensters */
             printf("Calling grafik_init_window.\n");
             grafik_init_window();
@@ -63,33 +62,24 @@ int main (int argc, char* args[])
             printf("Calling grafik_lock_for_painting.\n");
             grafik_lock_for_painting();
 
-        /* Bitte ersetzen Sie folgenden Funktionsaufruf durch ihre eigene
-         * Implementation der Fraktalberechnung und -anzeige. */
+        /*--- Fraktal Berechnung -------------------------------------------*/
             printf("Calling fraktal.\n");
             fraktal(c, z, p);
-
-        
+                    
          /* virtuelle Leinwand deaktivieren und im Grafikfenster ausgeben. */
             printf("Calling grafik_unlock_and_show.\n");
             grafik_unlock_and_show();
-
-       
-        
-
-        
+                        
         /* ------------------------*/
         /*VOR ABSCHLUSS ENTFERNEN!!*/
             printf("Calling system: pause.\n");
             system("pause");
         /*-------------------------*/
 
-        }
-        
+        }       
                 
         /* Aufräumen und freigeben der benutzten Grafikressourcen */
         grafik_close_window();
-
-        
         return 0;
 }
 

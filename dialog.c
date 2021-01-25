@@ -80,9 +80,11 @@ int param_dialog(param_t *p_in, complex_t *c_in)
         case 1: printf("Bitte Radius Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n");    //Eingabe Radius.
             input_double(&p.radius);
             break;
+
         case 2: printf("Bitte die maximale Iterationszahl wählen. \n"); //Eingabe der maximalen Iterationszahl
             input_int(&p.imax);
             break;
+
         case 3: printf("Bitte Fraktalvariante wählen: Mandelbrot- oder Juliamenge (m/j) \n"); //Eingabe der Fraktalvariante mithilfe unserer get_F Funktion.
             p.menge = get_F();
             while (p.menge != julia && p.menge != mandel)
@@ -90,9 +92,12 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                 p.menge = get_F();
             }
             break;
+
         case 4:;            //Eingabe des Analysegebietes
             int xokay = 0;
             int yokay = 0;
+            /*--- The Following is Ugly but works ----------------------*/
+
             while (xokay == 0) {
                 printf("Bitte xmin Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n"); //Eingabe des X-Werte
                 input_double(&p.xmin);
@@ -117,17 +122,21 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                     ++yokay;
                 }
             }
+            /*-----------------------------------------------------------*/
             break;
+
         case 5: printf("Bitte die Anzahl der Linien in x-Richtung eingeben.\n"); //Eingebe der Anzahl der Linien in x & y Richtung 
             input_int(&p.xpoints);
             printf("Bitte die Anzahl der Linien in y-Richtung eingeben.\n");
             input_int(&p.ypoints);
             break;
+
         case 6: printf("Bitte Realteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n"); //Eingabe der komplexen Zahl
             input_double(&c.real);
             printf("Bitte Imaginärteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n");
             input_double(&c.imag);
             break;
+
         case 8: printf("Programm beenden? (y/n)\n");    //Überprüft, ob Programm wirklich beendet werden soll.
             if (input_char() == 'y' || input_char() == 'Y')
             {
@@ -135,6 +144,7 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                 return 0;                               //Übergibt 0 an Main --> auch dort Programm gezielt beenden.
             }
             break;
+
         case 9: printf("Eingaben bestätigen? (y/n)");   //bestätigen und speichern der Eingaben
             if (input_char() == 'y' || input_char() == 'Y')
             { //Prüft, ob Eingaben Sinnhaft sind. 
@@ -156,13 +166,9 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                          \nEingabe nicht erkannt: Bitte Entsprechende Zahl von 1 ... 9 eingeben!\
                          \n*********************************************************************\n");
             break;
-        }
-
-       
+        }       
     }
-
      return 1;
-
 };
 
 

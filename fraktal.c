@@ -16,87 +16,92 @@ int get_itera(complex_t c, complex_t z, param_t param){ /*wir brauchen den einga
 	double xnew = z.real;
 	double ynew = z.imag;
 	double xzero, yzero;
-	while (((xnew * xnew) + (ynew * ynew) < (param.radius * param.radius)) && (itera < param.imax)) { /*prüft ob, die komlexe zahl innerhalb der menge liegt und dass wir die max. iterationszahl nicht überschreiten*/
+	while (((xnew * xnew) + (ynew * ynew) < (param.radius * param.radius)) && (itera < param.imax)) 
+	{ /*prüft ob, die komlexe zahl innerhalb der menge liegt und dass wir die max. iterationszahl nicht überschreiten*/
 		xzero = xnew;
 		yzero = ynew;
 		xnew = (xzero * xzero) - (yzero * yzero) + a; /*berechnung des neuen fraktals durch umstellung der fraktalformel*/
 		ynew = 2 * xzero * yzero + b;
 	    itera++;
-	} return itera;
+	} 
+	return itera;
 	/*berechnung des fraktals innerhalb der get_itera-methode, weil in den ietrationen mit z(i+1) weitergerechnet wird*/
 }
 
 /*--- Interne Funktion: Farbwert bestimmen ---------------------------------*/
 color_name_t get_color_value(int i, int imax) {
-	color_name_t colorname = Black;
+	color_name_t colorname;
 	int colorvalue = i % 31 + 1; /*begrenzung der iterationen auf max. anzahl von farbwerten*/
 	if(i >= imax){
 		return colorname = Black; /*ausgabe schwarz, wenn imax überschritten wird*/
 	}
-	else{ /*zuordnung der farben zu iterationsanzahl*/
+	else
+	{ /*zuordnung der farben zu iterationsanzahl*/
 		switch(colorvalue){
 			case 1: colorname = Valhalla;
-			break;
+				break;
 			case 2: colorname = Loulou;
-			break;
+				break;
 			case 3: colorname = Oiled_Cedar;
-			break;
+				break;
 			case 4: colorname = Rope;
-			break;
+				break;
 			case 5: colorname = Tahiti_Gold;
-			break;
+				break;
 			case 6: colorname = Twine;
-			break;
+				break;
 			case 7: colorname = Pancho;
-			break;
+				break;
 			case 8: colorname = Golden_Fizz;
-			break;
+				break;
 			case 9: colorname = Atlantis;
-			break;
+				break;
 			case 10: colorname = Christi;
-			break;
+				break;
 			case 11: colorname = Elf_Green;
-			break;
+				break;
 			case 12: colorname = Dell;
-			break;
+				break;
 			case 13: colorname = Verdigris;
-			break;
+				break;
 			case 14: colorname = Opal;
-			break;
+				break;
 			case 15: colorname = Deep_Koamaru;
-			break;
+				break;
 			case 16: colorname = Venice_Blue;
-			break;
+				break;
 			case 17: colorname = Royal_Blue;
-			break;
+				break;
 			case 18: colorname = Cornflower;
-			break;
+				break;
 			case 19: colorname = Viking;
-			break;
+				break;
 			case 20: colorname = Light_Steel_Blu;
-			break;
+				break;
 			case 21: colorname = White;
-			break;
+				break;
 			case 22: colorname = Heather;
-			break;
+				break;
 			case 23: colorname = Topaz;
-			break;
+				break;
 			case 24: colorname = Dim_Gray;
-			break;
+				break;
 			case 25: colorname = Smokey_Ash;
-			break;
+				break;
 			case 26: colorname = Clairvoyant;
-			break;
+				break;
 			case 27: colorname = Brown;
-			break;
+				break;
 			case 28: colorname = Mandy;
-			break;
+				break;
 			case 29: colorname = Plum;
-			break;
+				break;
 			case 30: colorname = Rainforest;
-			break;
+				break;
 			case 31: colorname = Stinger;
-			break;
+				break;
+			default: colorname = Black;
+				break;
 		}
 		return colorname;
 	}
@@ -104,34 +109,38 @@ color_name_t get_color_value(int i, int imax) {
 
 
 /*--- Fraktal-Figur analysieren und zeichnen -------------------------------*/
-void fraktal(complex_t c, complex_t z, param_t param){
-	double xmid = (param.xmax - param.xmin) / param.xpoints; /*berechnung des koordinatenursprungs*/
-	double ymid = (param.ymax - param.ymin) / param.ypoints;
+void fraktal(complex_t c, complex_t z, param_t p){
+	double xstep = (p.xmax - p.xmin) / p.xpoints; /*berechnung der Schrittgröße*/
+	double ystep = (p.ymax - p.ymin) / p.ypoints;
 	double x, y;
 	complex_t zvar, cvar;
 	int i = 0;
 	color_name_t colorname;
-	for(x = param.xmin; x < param.xmax; x = x + xmid){ /*grenzen des feldes*/
-		for(y = param.ymin; y < param.ymax; y = y + ymid){
-			if(param.menge == mandel){
+	for(x = p.xmin; x < p.xmax; x = x + xstep){ /*grenzen des feldes*/
+		for(y = p.ymin; y < p.ymax; y = y + ystep){
+			if(p.menge == mandel){
 				printf("Varying cvar.\n");						//debug output. Delete before final?
 				cvar.real = x; /*bei mandel wird c variiert*/
 				cvar.imag = y;
-				i = get_itera(cvar, z, param);					//debug output. Delete before final?
+				i = get_itera(cvar, z, p);					//debug output. Delete before final?
 				printf("cvar.real: %f, cvar.imag: %f.\n", cvar.real, cvar.imag);
 			}
 			else {
 				printf("Varying zvar.\n");						//debug output. Delete before final?
 				zvar.real = x; /*bei julia wird z variiert*/
 				zvar.imag = y;
-				i = get_itera(c, zvar, param);
+				i = get_itera(c, zvar, p);
 				printf("cvar.real: %f, cvar.imag: %f.\n", zvar.real, zvar.imag); //debug output. Delete before final?
 			}
-			colorname = get_color_value(i, param.imax);
+			printf("Painting point y\n");
+
+			colorname = get_color_value(i, p.imax);
+
 			grafik_lock_for_painting();
 			grafik_unlock_and_show();
 			grafik_paint_point(x, y, colorname);
 		}
+		printf("Painting point x\n");
 	}
 };
 

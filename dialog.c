@@ -172,7 +172,11 @@ fraktal_t get_F(void)
     {
     case 'm': return mandel;
         break;
+    case 'M': return mandel;
+        break;
     case 'j': return julia;
+        break;
+    case 'J': return julia;
         break;
     default: printf("Eingabe falsch. Bitte wiederholen.\n");
         break;

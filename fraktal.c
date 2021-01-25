@@ -113,7 +113,7 @@ void fraktal(complex_t c, complex_t z, param_t param){
 	color_name_t colorname;
 	for(x = param.xmin; x < param.xmax; x = x + xmid){ /*grenzen des feldes*/
 		for(y = param.ymin; y < param.ymax; y = y + ymid){
-			if(param.menge == 0){
+			if(param.menge == mandel){
 				cvar.real = x; /*bei mandel wird c variiert*/
 				cvar.imag = y;
 				i = get_itera(cvar, z, param);

@@ -90,14 +90,33 @@ int param_dialog(param_t p, complex_t c)
                 p_in.menge = get_F();
             }
             break;
-        case 4: printf("Bitte xmin Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n"); //Eingabe des Analysegebietes
-            input_double(&p_in.xmin);
-            printf("Bitte xmax Eingeben. \n");
-            input_double(&p_in.xmax);
-            printf("Bitte ymin Eingeben. \n");
-            input_double(&p_in.ymin);
-            printf("Bitte ymax Eingeben. \n");
-            input_double(&p_in.ymax);
+        case 4:             //Eingabe des Analysegebietes
+            int xokay = 0;
+            int yokay = 0;
+            while (xokay == 0) {
+                printf("Bitte xmin Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n"); //Eingabe des X-Werte
+                input_double(&p_in.xmin);
+                printf("Bitte xmax Eingeben. \n");
+                input_double(&p_in.xmax);
+                if (p_in.xmin > p_in.xmax) {                                                      //überprüfe ob xmin kleiner xmax ist
+                    printf("Unzulaessige Eingabe!\nxmin muss kleiner sein als xmax \n");
+                }
+                else {
+                    ++xokay;
+                }
+            }
+            while (yokay == 0) {                                                                  //Eingabe des Y-Werte
+                printf("Bitte ymin Eingeben. \n");
+                input_double(&p_in.ymin);
+                printf("Bitte ymax Eingeben. \n");
+                input_double(&p_in.ymax);
+                if (p_in.ymin > p_in.ymax) {                                                      //überprüfe ob ymin kleiner ymax ist
+                    printf("Unzulaessige Eingabe!\nymin muss kleiner sein als ymax \n");
+                }
+                else {
+                    ++yokay;
+                }
+            }
             break;
         case 5: printf("Bitte die Anzahl der Linien in x-Richtung eingeben.\n"); //Eingebe der Anzahl der Linien in x & y Richtung 
             input_int(&p_in.xpoints);

@@ -90,7 +90,7 @@ int param_dialog(param_t p, complex_t c)
                 p_in.menge = get_F();
             }
             break;
-        case 4:             //Eingabe des Analysegebietes
+        case 4:;            //Eingabe des Analysegebietes
             int xokay = 0;
             int yokay = 0;
             while (xokay == 0) {
@@ -179,6 +179,7 @@ fraktal_t get_F(void)
     case 'J': return julia;
         break;
     default: printf("Eingabe falsch. Bitte wiederholen.\n");
+        return mandel;
         break;
     }    
 }

@@ -28,7 +28,7 @@ int get_itera(complex_t c, complex_t z, param_t param){ /*wir brauchen den einga
 
 /*--- Interne Funktion: Farbwert bestimmen ---------------------------------*/
 color_name_t get_color_value(int i, int imax) {
-	color_name_t colorname;
+	color_name_t colorname = Black;
 	int colorvalue = i % 31 + 1; /*begrenzung der iterationen auf max. anzahl von farbwerten*/
 	if(i >= imax){
 		return colorname = Black; /*ausgabe schwarz, wenn imax überschritten wird*/
@@ -114,14 +114,18 @@ void fraktal(complex_t c, complex_t z, param_t param){
 	for(x = param.xmin; x < param.xmax; x = x + xmid){ /*grenzen des feldes*/
 		for(y = param.ymin; y < param.ymax; y = y + ymid){
 			if(param.menge == mandel){
+				printf("Varying cvar.\n");						//debug output. Delete before final?
 				cvar.real = x; /*bei mandel wird c variiert*/
 				cvar.imag = y;
-				i = get_itera(cvar, z, param);
+				i = get_itera(cvar, z, param);					//debug output. Delete before final?
+				printf("cvar.real: %f, cvar.imag: %f.\n", cvar.real, cvar.imag);
 			}
 			else {
+				printf("Varying zvar.\n");						//debug output. Delete before final?
 				zvar.real = x; /*bei julia wird z variiert*/
 				zvar.imag = y;
 				i = get_itera(c, zvar, param);
+				printf("cvar.real: %f, cvar.imag: %f.\n", zvar.real, zvar.imag); //debug output. Delete before final?
 			}
 			colorname = get_color_value(i, param.imax);
 			grafik_lock_for_painting();

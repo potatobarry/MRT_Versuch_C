@@ -34,7 +34,7 @@ int get_itera(complex_t c, complex_t z, param_t param);
 #include "graphic.h" /*eingebunden, damit wir mit dem datentyp des rückgabewertes arbeiten können*/
 color_name_t get_color_value(int i, int imax); /*datentyp zum selben wie vom enum geändert*/
 
-void fraktal(complex_t c, complex_t z);
+void fraktal(complex_t c, complex_t z, param_t param);
 
 #endif /* FRAKTAL_H */
 /* EOF FRAKTAL_H */

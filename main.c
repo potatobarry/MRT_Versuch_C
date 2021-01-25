@@ -63,22 +63,26 @@ int main (int argc, char* args[])
             }
 
         /* Initialisierung des Grafikausgabefensters */
+            printf("Calling grafik_init_window.\n");
             grafik_init_window();
 
         /* Erzeugen einer virtuellen Leinwand um darauf zu zeichnen: */
+            printf("Calling grafik_create_paint_area.\n");
             grafik_create_paint_area(p.xmin, p.xmax, p.ymin, p.ymax, p.xpoints, p.ypoints);
         
         /* virtuelle Leinwand vor dem Zeichnen aktivieren */
-            //grafik_lock_for_painting();
+            printf("Calling grafik_lock_for_painting.\n");
+            grafik_lock_for_painting();
 
         /* Bitte ersetzen Sie folgenden Funktionsaufruf durch ihre eigene
          * Implementation der Fraktalberechnung und -anzeige. */
-        
+            printf("Calling fraktal.\n");
             fraktal(c, z, p);
 
         
          /* virtuelle Leinwand deaktivieren und im Grafikfenster ausgeben. */
-        //grafik_unlock_and_show();
+            printf("Calling grafik_unlock_and_show.\n");
+            grafik_unlock_and_show();
 
        
         
@@ -86,6 +90,7 @@ int main (int argc, char* args[])
         
         /* ------------------------*/
         /*VOR ABSCHLUSS ENTFERNEN!!*/
+            printf("Calling system: pause.\n");
             system("pause");
         /*-------------------------*/
 

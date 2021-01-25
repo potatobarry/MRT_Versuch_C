@@ -11,6 +11,7 @@
 #include <io.h>
 #include <SDL.h>
 
+
 // Forwarddeklaration der später definierten Hilfsfunktionen:
 void goodbye_msg(void);
 static void init_exit(void);
@@ -28,10 +29,8 @@ int main (int argc, char* args[])
         complex_t c = { 0 };
         complex_t z = { 0 };
     
-
         /*--- Initialwerte -------------------------------------------------*/
-
-        init_exit();
+       
         int keep_going = 1;
        
         p.menge   = mandel;
@@ -48,20 +47,10 @@ int main (int argc, char* args[])
         c.imag = 0.4;
 
         /*--- Hauptprogramm ------------------------------------------------*/
-
-        while (keep_going != 0)
-        {
-
-        
         /*--- Parameter über Dialog abfragen -------------------------------*/
-            keep_going = param_dialog(p, c); //gibt 0 zurück wenn programm beenden, sonst 1
-         
-        /*--- Überprüfen der Exitbedingung ---------------------------------*/
-            if (keep_going == 0)
-            {
-                break;
-            }
-
+        while (param_dialog(&p, &c))
+        {
+        
         /* Initialisierung des Grafikausgabefensters */
             printf("Calling grafik_init_window.\n");
             grafik_init_window();

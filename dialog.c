@@ -48,10 +48,10 @@ void input_int(int *value)
 
 /*--- Parameter Dialog -----------------------------------------------------*/
 
-int param_dialog(param_t p, complex_t c)
+int param_dialog(param_t *p_in, complex_t *c_in)
 {
-    param_t p_in = p;
-    complex_t c_in =c;
+    param_t p = *p_in;
+    complex_t c = *c_in;
     int input = 0;
     int exit = 0;
     
@@ -60,15 +60,15 @@ int param_dialog(param_t p, complex_t c)
     {
         printf("\n--------------------------------------------------------------------------\n");
         printf("Zur Parametereingabe bitte eine der Folgenden Optionen auswählen und mit [Enter] bestätigen:\n");
-        printf("\n[1]: Radius zur Beschreibung es kreisförmigen Gebietes G für komplexe Zahlen \n Aktuell: radius = %f\n", p_in.radius);
-        printf("\n[2]: Maximale Iterationszahl \n Aktuell: imax = %d\n", p_in.imax);
-        printf("\n[3]: Fraktalvariante wählen: m für Manedelbrot, j für Juliamenge \n Aktuell: menge = % c\n", p_in.menge);
+        printf("\n[1]: Radius zur Beschreibung es kreisförmigen Gebietes G für komplexe Zahlen \n Aktuell: radius = %f\n", p.radius);
+        printf("\n[2]: Maximale Iterationszahl \n Aktuell: imax = %d\n", p.imax);
+        printf("\n[3]: Fraktalvariante wählen: m für Manedelbrot, j für Juliamenge \n Aktuell: menge = % c\n", p.menge);
         printf("\n[4]: Komplexwertiges Analysegebiet wählen \n Aktuell: xmin = %f\
                                                             \n          xmax = %f\
                                                             \n          ymin = %f\
-                                                            \n          ymax = %f", p_in.xmin, p_in.xmax, p_in.ymin, p_in.ymax);
-        printf("\n[5]: Anzahl der Linien im Analysegebiet \n Aktuell: Linien in x-Richtung: xpoints = %d \n          Linien in y-Richtung: ypoints = %d\n", p_in.xpoints, p_in.ypoints);
-        printf("\n[6]: Komplexe Zahl c\n Aktuell: Realteil = %f, Imaginärteil = %f\n", c_in.real, c_in.imag);
+                                                            \n          ymax = %f", p.xmin, p.xmax, p.ymin, p.ymax);
+        printf("\n[5]: Anzahl der Linien im Analysegebiet \n Aktuell: Linien in x-Richtung: xpoints = %d \n          Linien in y-Richtung: ypoints = %d\n", p.xpoints, p.ypoints);
+        printf("\n[6]: Komplexe Zahl c\n Aktuell: Realteil = %f, Imaginärteil = %f\n", c.real, c.imag);
         printf("\n[8]: Programm beenden\
                 \n[9]: Eingaben bestätigen und Speichern\
                 \n--------------------------------------------------------------------------\n");
@@ -78,16 +78,16 @@ int param_dialog(param_t p, complex_t c)
         switch (input)
         {
         case 1: printf("Bitte Radius Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n");    //Eingabe Radius.
-            input_double(&p_in.radius);
+            input_double(&p.radius);
             break;
         case 2: printf("Bitte die maximale Iterationszahl wählen. \n"); //Eingabe der maximalen Iterationszahl
-            input_int(&p_in.imax);
+            input_int(&p.imax);
             break;
         case 3: printf("Bitte Fraktalvariante wählen: Mandelbrot- oder Juliamenge (m/j) \n"); //Eingabe der Fraktalvariante mithilfe unserer get_F Funktion.
-            p_in.menge = get_F();
-            while (p_in.menge != julia && p_in.menge != mandel)
+            p.menge = get_F();
+            while (p.menge != julia && p.menge != mandel)
             {
-                p_in.menge = get_F();
+                p.menge = get_F();
             }
             break;
         case 4:;            //Eingabe des Analysegebietes
@@ -95,10 +95,10 @@ int param_dialog(param_t p, complex_t c)
             int yokay = 0;
             while (xokay == 0) {
                 printf("Bitte xmin Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n"); //Eingabe des X-Werte
-                input_double(&p_in.xmin);
+                input_double(&p.xmin);
                 printf("Bitte xmax Eingeben. \n");
-                input_double(&p_in.xmax);
-                if (p_in.xmin > p_in.xmax) {                                                      //überprüfe ob xmin kleiner xmax ist
+                input_double(&p.xmax);
+                if (p.xmin > p.xmax) {                                                      //überprüfe ob xmin kleiner xmax ist
                     printf("Unzulaessige Eingabe!\nxmin muss kleiner sein als xmax \n");
                 }
                 else {
@@ -107,10 +107,10 @@ int param_dialog(param_t p, complex_t c)
             }
             while (yokay == 0) {                                                                  //Eingabe des Y-Werte
                 printf("Bitte ymin Eingeben. \n");
-                input_double(&p_in.ymin);
+                input_double(&p.ymin);
                 printf("Bitte ymax Eingeben. \n");
-                input_double(&p_in.ymax);
-                if (p_in.ymin > p_in.ymax) {                                                      //überprüfe ob ymin kleiner ymax ist
+                input_double(&p.ymax);
+                if (p.ymin > p.ymax) {                                                      //überprüfe ob ymin kleiner ymax ist
                     printf("Unzulaessige Eingabe!\nymin muss kleiner sein als ymax \n");
                 }
                 else {
@@ -119,14 +119,14 @@ int param_dialog(param_t p, complex_t c)
             }
             break;
         case 5: printf("Bitte die Anzahl der Linien in x-Richtung eingeben.\n"); //Eingebe der Anzahl der Linien in x & y Richtung 
-            input_int(&p_in.xpoints);
+            input_int(&p.xpoints);
             printf("Bitte die Anzahl der Linien in y-Richtung eingeben.\n");
-            input_int(&p_in.ypoints);
+            input_int(&p.ypoints);
             break;
         case 6: printf("Bitte Realteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n"); //Eingabe der komplexen Zahl
-            input_double(&c_in.real);
+            input_double(&c.real);
             printf("Bitte Imaginärteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n");
-            input_double(&c_in.imag);
+            input_double(&c.imag);
             break;
         case 8: printf("Programm beenden? (y/n)\n");    //Überprüft, ob Programm wirklich beendet werden soll.
             if (input_char() == 'y' || input_char() == 'Y')
@@ -138,12 +138,12 @@ int param_dialog(param_t p, complex_t c)
         case 9: printf("Eingaben bestätigen? (y/n)");   //bestätigen und speichern der Eingaben
             if (input_char() == 'y' || input_char() == 'Y')
             { //Prüft, ob Eingaben Sinnhaft sind. 
-                if ((p_in.radius > 0) && (p_in.imax > 0) && (p_in.menge == 'm' || p_in.menge == 'j') && (p_in.xmin < p_in.xmax)
-                    && (p_in.ymin < p_in.ymax) && (p_in.xpoints > 0) && (p_in.ypoints > 0))
+                if ((p.radius > 0) && (p.imax > 0) && (p.menge == 'm' || p.menge == 'j') && (p.xmin < p.xmax)
+                    && (p.ymin < p.ymax) && (p.xpoints > 0) && (p.ypoints > 0))
                 {
                 printf("Eingaben bestätigt...\n"); //Setzten der eingegebenen p und c Variablen auf Eingaben.
-                p = p_in;
-                c = c_in;
+                *p_in = p;
+                *c_in = c;
                 exit = 1;   //Bedingung zum verlassen der while Schleife
                 }
                 else

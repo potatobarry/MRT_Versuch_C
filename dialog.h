@@ -5,13 +5,13 @@
 
 #ifndef DIALOG_H
 #define DIALOG_H
-
 #include "fraktal.h"
 
 
-/*--- Parameter Dialog Prototyp --------------------------------------------*/
+/*--- Parameter Dialog -----------------------------------------------------*/
 
-int param_dialog(param_t p, complex_t c);
+int param_dialog(param_t *p, complex_t *c);
+fraktal_t get_F();
 
 /*--- Funktion zum einlesen des ersten Characters einer getchar() Eingabe --*/
 char input_char();

@@ -20,3 +20,4 @@ char input_char();
 #endif /* DIALOG_H */
 
 /* EOF DIALOG_H */
+/*kommentar*/

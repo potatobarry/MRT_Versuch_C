@@ -9,7 +9,7 @@
 
 
 /*--- Interne Funktion: Analyse der Iterationsanzahl -----------------------*/
-int get_itera(complex_t c, complex_t z, param_t param){ /*wir brauchen den eingabeparameter param, damit wir die bedingungen für die while schleife haben*/
+int get_itera(complex_t c, complex_t z, param_t param){ /*Wir brauchen den Eingabeparameter param, damit wir die Bedingungen für die While-schleife haben*/
 	int itera = 0;
 	double a = c.real;
 	double b = c.imag;
@@ -17,15 +17,15 @@ int get_itera(complex_t c, complex_t z, param_t param){ /*wir brauchen den einga
 	double ynew = z.imag;
 	double xzero, yzero;
 	while (((xnew * xnew) + (ynew * ynew) < (param.radius * param.radius)) && (itera < param.imax)) 
-	{ /*prüft ob, die komlexe zahl innerhalb der menge liegt und dass wir die max. iterationszahl nicht überschreiten*/
+	{ /*Prüft, ob die komplexe Zahl innerhalb der Menge liegt und dass die max. Iterationszahl nicht überschritten wird*/
 		xzero = xnew;
 		yzero = ynew;
-		xnew = (xzero * xzero) - (yzero * yzero) + a; /*berechnung des neuen fraktals durch umstellung der fraktalformel*/
+		xnew = (xzero * xzero) - (yzero * yzero) + a; /*Berechnung des neuen Fraktals durch Umstellung der Fraktalformel*/
 		ynew = 2 * xzero * yzero + b;
 	    itera++;
 	} 
 	return itera;
-	/*berechnung des fraktals innerhalb der get_itera-methode, weil in den ietrationen mit z(i+1) weitergerechnet wird*/
+	/*Berechnung des Fraktals innerhalb der get_itera-methode, weil in den Iterationen mit z(i+1) weitergerechnet wird*/
 }
 
 /*--- Interne Funktion: Farbwert bestimmen ---------------------------------*/
@@ -110,25 +110,25 @@ color_name_t get_color_value(int i, int imax) {
 
 /*--- Fraktal-Figur analysieren und zeichnen -------------------------------*/
 void fraktal(complex_t c, complex_t z, param_t p){
-	double xstep = (p.xmax - p.xmin) / p.xpoints; /*berechnung der Schrittgröße*/
+	double xstep = (p.xmax - p.xmin) / p.xpoints; /*Berechnung der Schrittgröße*/
 	double ystep = (p.ymax - p.ymin) / p.ypoints;
 	double x, y;
 	complex_t zvar, cvar;
 	int i = 0;
 	color_name_t colorname;
 		
-	for(x = p.xmin; x < p.xmax; x = x + xstep){ /*grenzen des feldes*/
+	for(x = p.xmin; x < p.xmax; x = x + xstep){ /*Grenzen des Feldes*/
 		for(y = p.ymin; y < p.ymax; y = y + ystep){
 			if(p.menge == mandel){
 				printf("Varying cvar.\n");						//debug output. Delete before final?
-				cvar.real = x; /*bei mandel wird c variiert*/
+				cvar.real = x; /*bei Mandel wird c variiert*/
 				cvar.imag = y;
 				i = get_itera(cvar, z, p);					//debug output. Delete before final?
 				printf("cvar.real: %f, cvar.imag: %f.\n", cvar.real, cvar.imag);
 			}
 			else {
 				printf("Varying zvar.\n");						//debug output. Delete before final?
-				zvar.real = x; /*bei julia wird z variiert*/
+				zvar.real = x; /*bei Julia wird z variiert*/
 				zvar.imag = y;
 				i = get_itera(c, zvar, p);
 				printf("cvar.real: %f, cvar.imag: %f.\n", zvar.real, zvar.imag); //debug output. Delete before final?

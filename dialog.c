@@ -67,7 +67,9 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                                                             \n          xmax = %f\
                                                             \n          ymin = %f\
                                                             \n          ymax = %f", p.xmin, p.xmax, p.ymin, p.ymax);
-        printf("\n[5]: Anzahl der Linien im Analysegebiet \n Aktuell: Linien in x-Richtung: xpoints = %d \n          Linien in y-Richtung: ypoints = %d\n", p.xpoints, p.ypoints);
+        printf("\n[5]: Auflösung des Analysegebietes in x und y Richtung\
+                \n Aktuell: Linien in x-Richtung: xpoints = %d \
+                \n          Linien in y-Richtung: ypoints = %d\n", p.xpoints, p.ypoints);
         printf("\n[6]: Komplexe Zahl c\n Aktuell: Realteil = %f, Imaginärteil = %f\n", c.real, c.imag);
         printf("\n[8]: Programm beenden\
                 \n[9]: Eingaben bestätigen und Speichern\
@@ -99,23 +101,23 @@ int param_dialog(param_t *p_in, complex_t *c_in)
             /*--- The Following is Ugly but works ----------------------*/
 
             while (xokay == 0) {
-                printf("Bitte xmin Eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y \n"); //Eingabe des X-Werte
+                printf("Bitte xmin Eingeben. Dezimalstellen mit [.] realisieren, z.B. -2.5 \n"); //Eingabe der X-Werte
                 input_double(&p.xmin);
                 printf("Bitte xmax Eingeben. \n");
                 input_double(&p.xmax);
-                if (p.xmin > p.xmax) {                                                      //überprüfe ob xmin kleiner xmax ist
-                    printf("Unzulaessige Eingabe!\nxmin muss kleiner sein als xmax \n");
+                if (p.xmin >= p.xmax) {                                                      //Überprüfen, ob xmin kleiner xmax ist.
+                    printf("Unzulaessige Eingabe!\nxmin muss kleiner sein als xmax. \n");
                 }
                 else {
                     ++xokay;
                 }
             }
-            while (yokay == 0) {                                                                  //Eingabe des Y-Werte
+            while (yokay == 0) {                                                                  //Eingabe der Y-Werte
                 printf("Bitte ymin Eingeben. \n");
                 input_double(&p.ymin);
                 printf("Bitte ymax Eingeben. \n");
                 input_double(&p.ymax);
-                if (p.ymin > p.ymax) {                                                      //überprüfe ob ymin kleiner ymax ist
+                if (p.ymin >= p.ymax) {                                                      //Überprüfen, ob ymin kleiner ymax ist.
                     printf("Unzulaessige Eingabe!\nymin muss kleiner sein als ymax \n");
                 }
                 else {
@@ -143,7 +145,11 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                 printf("exiting...\n");
                 return 0;                               //Übergibt 0 an Main --> auch dort Programm gezielt beenden.
             }
-            break;
+            else
+            {
+                break;
+            }
+            
 
         case 9: printf("Eingaben bestätigen? (y/n)");   //bestätigen und speichern der Eingaben
             if (input_char() == 'y' || input_char() == 'Y')
@@ -151,7 +157,7 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                 if ((p.radius > 0) && (p.imax > 0) && (p.menge == 'm' || p.menge == 'j') && (p.xmin < p.xmax)
                     && (p.ymin < p.ymax) && (p.xpoints > 0) && (p.ypoints > 0))
                 {
-                printf("Eingaben bestätigt...\n"); //Setzten der eingegebenen p und c Variablen auf Eingaben.
+                printf("Eingaben bestätigt...\n"); //Speichern der Eingaben für die Verwendung in main.c
                 *p_in = p;
                 *c_in = c;
                 exit = 1;   //Bedingung zum verlassen der while Schleife

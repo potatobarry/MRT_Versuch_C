@@ -30,9 +30,7 @@ int main (int argc, char* args[])
         complex_t z = { 0 };
     
         /*--- Initialwerte -------------------------------------------------*/
-       
-        int keep_going = 1;
-       
+                      
         p.menge   = mandel;
         p.radius  =      2;
         p.xmin    =     -2;
@@ -78,7 +76,7 @@ int main (int argc, char* args[])
 
         }       
                 
-        /* Aufräumen und freigeben der benutzten Grafikressourcen */
+        /* Aufräumen und Freigeben der benutzten Grafikressourcen */
         grafik_close_window();
         return 0;
 }

@@ -113,9 +113,9 @@ void fraktal(complex_t c, complex_t z, param_t p){
 	double xstep = (p.xmax - p.xmin) / p.xpoints; /*Berechnung der Schrittgröße*/
 	double ystep = (p.ymax - p.ymin) / p.ypoints;
 	double x, y;
-	complex_t zvar, cvar;
+	complex_t zvar = { 0 }, cvar = { 0 };
 	int i = 0;
-	color_name_t colorname;
+	color_name_t colorname = Black;
 		
 	for(x = p.xmin; x < p.xmax; x = x + xstep){ /*Grenzen des Feldes*/
 		for(y = p.ymin; y < p.ymax; y = y + ystep){

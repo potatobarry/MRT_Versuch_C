@@ -67,8 +67,8 @@ static const unsigned char rgb_vals[NUM_COLORS][3] = {
         { /*Stinger*/            138,     111,      48 }
 };
 
-static double xmin, ymin, deltax, deltay;
-static double xres, yres;
+static double xmin = 0, ymin = 0, deltax = 0, deltay = 0;
+static double xres = 0, yres = 0;
 
 /** Grafikausgabe initialisieren.
 */

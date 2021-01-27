@@ -56,19 +56,11 @@ int main (int argc, char* args[])
         /* Erzeugen einer virtuellen Leinwand um darauf zu zeichnen: */
             printf("Calling grafik_create_paint_area.\n");
             grafik_create_paint_area(p.xmin, p.xmax, p.ymin, p.ymax, p.xpoints, p.ypoints);
-        
-        /* virtuelle Leinwand vor dem Zeichnen aktivieren */
-            printf("Calling grafik_lock_for_painting.\n");
-            grafik_lock_for_painting();
-
+             
         /*--- Fraktal Berechnung -------------------------------------------*/
             printf("Calling fraktal.\n");
             fraktal(c, z, p);
-                    
-         /* virtuelle Leinwand deaktivieren und im Grafikfenster ausgeben. */
-            printf("Calling grafik_unlock_and_show.\n");
-            grafik_unlock_and_show();
-                        
+                
         /* ------------------------*/
         /*VOR ABSCHLUSS ENTFERNEN!!*/
             printf("Calling system: pause.\n");

@@ -138,7 +138,9 @@ void fraktal(complex_t c, complex_t z, param_t p){
 			colorname = get_color_value(i, p.imax);
 					
 			printf("Painting point x\n");
+			grafik_lock_for_painting();
 			grafik_paint_point(x, y, colorname);
+			grafik_unlock_and_show();
 		}
 		
 	}

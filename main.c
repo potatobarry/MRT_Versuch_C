@@ -46,7 +46,8 @@ int main (int argc, char* args[])
 
         /*--- Hauptprogramm ------------------------------------------------*/
         /*--- Parameter über Dialog abfragen -------------------------------*/
-        while (param_dialog(&p, &c))
+        while (param_dialog(&p, &c))  //Pointer Übergeben Adresse an param_dialog,
+                       //nicht nur den Wert, damit die Eingaben zurückgegeben werden können.
         {        
         /* Initialisierung des Grafikausgabefensters */
             printf("Calling grafik_init_window.\n");

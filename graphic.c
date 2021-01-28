@@ -75,7 +75,8 @@ static const unsigned char rgb_vals[NUM_COLORS][3] = {
 static double xmin = 0, ymin = 0, deltax = 0, deltay = 0;
 static double xres = 0, yres = 0;
 
-/** Grafikausgabe initialisieren.
+/*
+* Grafikausgabe initialisieren.
 */
 void grafik_init_window(void)
 {
@@ -162,7 +163,8 @@ void grafik_create_paint_area(const double x_min, const double x_max,
 
 
 
-/** einzelnen Farbpunkt setzen.
+/*
+* einzelnen Farbpunkt setzen.
  */
 int grafik_paint_point(double x, double y,
                        color_name_t colorname)
@@ -194,7 +196,8 @@ int grafik_paint_point(double x, double y,
 }
 
 
-/** Ausgabefenster sperren um zu zeichnen.
+/*
+* Ausgabefenster sperren um zu zeichnen.
 */
 void grafik_lock_for_painting(void)
 {
@@ -207,7 +210,8 @@ void grafik_lock_for_painting(void)
 }
 
 
-/** Ausgabefenster entsperren und gepufferte Daten ausgeben.
+/*
+* Ausgabefenster entsperren und gepufferte Daten ausgeben.
 */
 void grafik_unlock_and_show(void)
 {
@@ -223,7 +227,8 @@ void grafik_unlock_and_show(void)
 }
 
 
-/** Grafikfenster schließen und aufräumen.
+/*
+* Grafikfenster schließen und aufräumen.
 */
 void grafik_close_window(void) {
         if(texture)

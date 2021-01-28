@@ -64,6 +64,7 @@ int param_dialog(param_t *p_in, complex_t *c_in)
     
     while (exit == 0)
     {
+        /* Textausgabe im Terminal */
         printf("\n--------------------------------------------------------------------------\n");
         printf("Zur Parametereingabe bitte eine der Folgenden Optionen auswählen und mit [Enter] bestätigen:\n");
         printf("\n[1]: Radius zur Beschreibung es kreisförmigen Gebietes G für komplexe Zahlen \n Aktuell: radius = %f\n", p.radius);
@@ -78,10 +79,12 @@ int param_dialog(param_t *p_in, complex_t *c_in)
                 \n          Linien in y-Richtung: ypoints = %d\n", p.xpoints, p.ypoints);
         printf("\n[6]: Komplexe Zahl c\n Aktuell: Realteil = %f, Imaginärteil = %f\n", c.real, c.imag);
         printf("\n[8]: Programm beenden\
-                \n[9]: Eingaben bestätigen und Speichern\
+                \n[9]: Eingaben bestätigen und Speichern, sowie Fraktal berechnen.\
                 \n--------------------------------------------------------------------------\n");
 
         input_int(&input);
+
+        /* Auswertung der Nutzereingabe zur Änderung der Werte, Bestätigung, usw.*/
 
         switch (input)
         {
@@ -133,23 +136,23 @@ int param_dialog(param_t *p_in, complex_t *c_in)
             /*-----------------------------------------------------------*/
             break;
 
-        case 5: printf("Bitte die Anzahl der Linien in x-Richtung eingeben.\n"); //Eingebe der Anzahl der Linien in x & y Richtung 
+        case 5: printf("Bitte die Anzahl der Linien in x-Richtung eingeben.\n"); //Eingabe der Anzahl der Linien bzw. Auflösung in x & y Richtung 
             input_int(&p.xpoints);
             printf("Bitte die Anzahl der Linien in y-Richtung eingeben.\n");
             input_int(&p.ypoints);
             break;
 
-        case 6: printf("Bitte Realteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n"); //Eingabe der komplexen Zahl
+        case 6: printf("Bitte Realteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n"); //Eingabe der komplexen Zahl c
             input_double(&c.real);
             printf("Bitte Imaginärteil der Komplexen Zahl c eingeben. Dezimalstellen mit [.] realisieren, z.B. x.y\n");
             input_double(&c.imag);
             break;
 
-        case 8: printf("Programm beenden? (y/n)\n");    //Überprüft, ob Programm wirklich beendet werden soll.
+        case 8: printf("Programm beenden? (y/n)\n");    //Überprüft, ob das Programm wirklich beendet werden soll.
             if (input_char() == 'y' || input_char() == 'Y')
             {
                 printf("exiting...\n");
-                return 0;                               //Übergibt 0 an Main --> auch dort Programm gezielt beenden.
+                return 0;                               //Übergibt 0 an Main --> auch dort Programm beenden.
             }
             else
             {
@@ -184,7 +187,7 @@ int param_dialog(param_t *p_in, complex_t *c_in)
 };
 
 
-fraktal_t get_F(void)
+fraktal_t get_F(void)  //unterfunktion zur Auswahl der Mengenart
 {
     switch (input_char())
     {

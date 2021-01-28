@@ -3,6 +3,11 @@
  * Programm-Modul "Grafische Darstellung"
  *
  * vorgegebene Funktionalität zur Erleichterung der Grafikausgabe.
+ * 
+ * Samuel Quinn Wagner, 4760211
+ * Nina Silvia Dröge, 4764513
+ * Lukas Gerbeth, 4817176
+ * Huu An Nguyen, 4763633
  *
  */
 

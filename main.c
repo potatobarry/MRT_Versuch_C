@@ -1,6 +1,12 @@
 /* BOF MAIN_C
  Praktikumsversuch: Einführung in die Sprache C
  Haupt-Programm
+
+ Samuel Quinn Wagner, 4760211
+ Nina Silvia Dröge, 4764513
+ Lukas Gerbeth, 4817176
+ Huu An Nguyen, 4763633
+
  */
 
 #include "fraktal.h"

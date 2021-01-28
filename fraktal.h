@@ -1,6 +1,12 @@
 /* BOF FRAKTAL_H
  Praktikumsversuch: Einführung in die Sprache C
  Programm-Modul "Fraktal-Analyse"
+
+ Samuel Quinn Wagner, 4760211
+ Nina Silvia Dröge, 4764513
+ Lukas Gerbeth, 4817176
+ Huu An Nguyen, 4763633
+
  */
 
 

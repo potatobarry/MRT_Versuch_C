@@ -19,7 +19,7 @@
  * folgenden Kommandozeilenbefehl nutzen:
   sudo apt-get install libsdl2-dev
  */
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 /*--- Typdefinitionen ------------------------------------------------------*/
 

@@ -14,8 +14,8 @@
 #include "dialog.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <io.h>
-#include <SDL.h>
+//#include <io.h>
+#include <SDL2/SDL.h>
 
 
 // Forwarddeklaration der später definierten Hilfsfunktionen:

@@ -123,6 +123,8 @@ void fraktal(complex_t c, complex_t z, param_t p){
 	int i = 0;
 	color_name_t colorname = Black;
 		
+	grafik_lock_for_painting();
+
 	for(x = p.xmin; x < p.xmax; x = x + xstep){ /*Grenzen des Feldes*/
 		for(y = p.ymin; y < p.ymax; y = y + ystep){
 			if(p.menge == mandel){
@@ -144,12 +146,13 @@ void fraktal(complex_t c, complex_t z, param_t p){
 			colorname = get_color_value(i, p.imax);
 					
 			printf("Painting point x\n");
-			grafik_lock_for_painting();
+			
 			grafik_paint_point(x, y, colorname);
-			grafik_unlock_and_show();
+			
 		}
 		
 	}
+	grafik_unlock_and_show();
 };
 
 /* EOF FRAKTAL_C */

@@ -128,24 +128,24 @@ void fraktal(complex_t c, complex_t z, param_t p){
 	for(x = p.xmin; x < p.xmax; x = x + xstep){ /*Grenzen des Feldes*/
 		for(y = p.ymin; y < p.ymax; y = y + ystep){
 			if(p.menge == mandel){
-				printf("Varying cvar.\n");						//debug output.
+				//printf("Varying cvar.\n");						//debug output zum Test des Programms
 				cvar.real = x; /*bei Mandel wird c variiert*/
 				cvar.imag = y;
 				i = get_itera(cvar, z, p);					//debug output.
-				printf("cvar.real: %f, cvar.imag: %f.\n", cvar.real, cvar.imag);
+				//printf("cvar.real: %f, cvar.imag: %f.\n", cvar.real, cvar.imag);
 			}
 			else {
-				printf("Varying zvar.\n");						//debug output.
+				//printf("Varying zvar.\n");						//debug output.
 				zvar.real = x; /*bei Julia wird z variiert*/
 				zvar.imag = y;
 				i = get_itera(c, zvar, p);
-				printf("cvar.real: %f, cvar.imag: %f.\n", zvar.real, zvar.imag); //debug output. 
+				//printf("cvar.real: %f, cvar.imag: %f.\n", zvar.real, zvar.imag); //debug output zum Test des Programms
 			}
-			printf("Painting point y\n");
+			//printf("Painting point y\n");
 
 			colorname = get_color_value(i, p.imax);
 					
-			printf("Painting point x\n");
+			//printf("Painting point x\n");
 			
 			grafik_paint_point(x, y, colorname);
 			

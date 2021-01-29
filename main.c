@@ -14,8 +14,20 @@
 #include "dialog.h"
 #include <stdio.h>
 #include <stdlib.h>
-//#include <io.h>
+
+
+#ifdef __linux__ 
 #include <SDL2/SDL.h>
+#elif _WIN32
+ // windows code goes here
+#include <io.h>
+#include <SDL.h>
+#else
+
+#endif
+
+
+ 
 
 
 // Forwarddeklaration der später definierten Hilfsfunktionen:

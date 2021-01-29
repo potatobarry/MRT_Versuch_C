@@ -14,8 +14,10 @@
 #include "graphic.h"
 #include <stdio.h>
 #include <stdlib.h>
-//#include <io.h>
 
+#ifdef _WIN32
+#include <io.h>
+#endif // __WIN32__
 
 /** interne Definitionen.
  * static ⇒ alle Variablen nur in diesem Modul sichbar

@@ -19,8 +19,15 @@
  * folgenden Kommandozeilenbefehl nutzen:
   sudo apt-get install libsdl2-dev
  */
-#include <SDL2/SDL.h>
 
+#ifdef __linux__ 
+#include <SDL2/SDL.h>
+#elif _WIN32
+ // windows code goes here
+#include <SDL.h>
+#else
+
+#endif
 /*--- Typdefinitionen ------------------------------------------------------*/
 
 /** Farbnamen der 32 vorgegebenen Farben
